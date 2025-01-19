@@ -17,5 +17,7 @@
             
         @endforeach
     </u1>
+
+    <button onclick='location.href="{{ route("memos.create") }}"'>登録する</button>
 </body>
 </html>
