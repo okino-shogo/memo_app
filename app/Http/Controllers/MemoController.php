@@ -44,7 +44,7 @@ class MemoController extends Controller
         $memo = Memo::find($id);
         return view('memos.edit', ['memo' => $memo]);
     }
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         // 更新対象データ
         $memo = Memo::find($id);
@@ -54,7 +54,15 @@ class MemoController extends Controller
 
         $memo->save();
 
-        //登録したらindexに戻る
+        //更新したらindexに戻る
+        return redirect(route('memos.index'));
+    }
+
+    public function destroy($id)
+    {
+        $memo=Memo::find($id);
+        $memo->delete();
+        //削除したらindexに戻る
         return redirect(route('memos.index'));
     }
 }
